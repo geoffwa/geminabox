@@ -2,7 +2,13 @@ require 'rubygems'
 require 'digest/md5'
 require 'builder'
 require 'sinatra/base'
-require 'rubygems/builder'
+
+if /^2\./ =~ RUBY_VERSION
+  require 'rubygems/package'
+else
+  require 'rubygems/builder'
+end
+
 require 'rubygems/indexer'
 require 'rubygems/package'
 require 'hostess'
